@@ -1,11 +1,20 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 let mode = 'development'
+let plugins = [
+  new HtmlWebpackPlugin({
+    inject: 'body',
+    template: './src/index.html',
+    filename: 'index.html'
+  }),
+]
 
 if (process.env.NODE_ENV === "production") {
   mode = "production";
+  plugins.push(new CleanWebpackPlugin())
 }
 
 module.exports = {
@@ -60,11 +69,5 @@ module.exports = {
     ],
   },
 
-  plugins: [
-    new HtmlWebpackPlugin({
-        inject: 'body',
-        template: './src/index.html',
-        filename: 'index.html'
-    }),
-],
+  plugins: plugins,
 };
