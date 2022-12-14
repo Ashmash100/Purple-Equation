@@ -1,9 +1,45 @@
-import "./style.scss";
+import "./index.scss";
+import globeImage from './images/globe.webp';
+import potraitImage from './images/man-nobg.webp'
 
 // apply aos
 AOS.init();
 
 // progress bar animation
+
+const scrollProgress = () => {
+  const progressBar = document.getElementById("progress-bar");
+  const max = document.body.scrollHeight - innerHeight;
+  const percent = (pageYOffset / max) * 100;
+  progressBar.style.width = percent + "%";
+};
+
+addEventListener("scroll", scrollProgress);
+// scroll to section
+
+const scrollToSection = () => {
+  const links = document.querySelectorAll("[data-location]");
+
+  [...links].forEach(link => {
+    link.addEventListener('click', () => {
+        let section = document.getElementById(link.getAttribute('data-location'));
+        section.scrollIntoView({block:"center"})
+    })
+  })
+}
+
+scrollToSection()
+
+// adding images
+
+document.getElementById('globe-img').src = globeImage;
+document.getElementById('joseph-dp').src = potraitImage;
+document.getElementById('sam-dp').src = potraitImage;
+document.getElementById('joshua-dp').src = potraitImage;
+
+
+
+// mobile menu
 
 const mobileMenu = () => {
   const hamburger = document.getElementById("hamburger");
@@ -21,7 +57,7 @@ const mobileMenu = () => {
     }
   });
 
-   mobileMenu.querySelectorAll("nav > a").forEach(link => {
+   mobileMenu.querySelectorAll("nav > button").forEach(link => {
       link.addEventListener("click", () => {
          mobileMenu.classList.toggle("hidden");
          close.classList.add("hidden");
@@ -32,15 +68,6 @@ const mobileMenu = () => {
 };
 
 mobileMenu();
-
-const scrollProgress = () => {
-  const progressBar = document.getElementById("progress-bar");
-  const max = document.body.scrollHeight - innerHeight;
-  const percent = (pageYOffset / max) * 100;
-  progressBar.style.width = percent + "%";
-};
-
-addEventListener("scroll", scrollProgress);
 
 const heroImage = document.getElementById("hero-image");
 const cube = document.getElementById("cube");
@@ -69,17 +96,27 @@ heroImage.addEventListener("mouseleave", () => {
   });
 });
 
-const images = [
-  "./images/campaign-creators-yktK2qaiVHI-unsplash.jpeg",
-  "./images/emile-perron-xrVDYZRGdw4-unsplash.jpeg",
-  "./images/laptop.jpeg",
-  "./images/marketing.jpeg",
-];
 
-const changeBg = () => {
-  const changingImage = document.getElementById("changing-image");
-  const bg = images[Math.floor(Math.random() * images.length)];
-  changingImage.style.backgroundImage = `linear-gradient( to right,rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2)),url(${bg})`;
-};
+// form 
 
-setInterval(changeBg, 5000);
+const currentUrl = window.location.href;
+const submitPage = document.getElementById("submit-page");
+submitPage.value = `${currentUrl}submit.html`
+
+
+function validateForm() {
+  const fields = document.querySelectorAll(".input-field")
+  const isValue = [...fields].every(field => field.length !== 0);
+
+  const submit = document.getElementById("submit-button");
+  const spinner = document.getElementById("spinner")
+
+  if(isValue) {
+    submit.classList.add("hidden");
+    spinner.classList.remove("hidden");
+  }  
+}
+
+document.getElementById("contact-form").addEventListener('submit', validateForm);
+
+

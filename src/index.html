@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="scroll-smooth scroll-pt-10" lang="en">
+<html class="scroll-smooth" lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -15,7 +15,7 @@
         <a href="">
           <svg
             
-            class="h-12 w-[140px]"
+            width="140"
             viewBox="0 0 251 86"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -34,13 +34,13 @@
           </svg>
         </a>
         <nav class="header-nav hidden md:block flex items-center">
-          <a href="#about" class="text-base">About</a>
-          <a href="#services" class="lg:ml-20 md:ml-14 text-base">Services</a>
-          <a href="#team" class="lg:ml-20 md:ml-14 text-base">Team</a>
-          <a
-            href="#contact"
+          <button data-location="about" class="text-base">About</button>
+          <button data-location="services" class="lg:ml-20 md:ml-14 text-base">Services</button>
+          <button data-location="team" class="lg:ml-20 md:ml-14 text-base">Team</button>
+          <button
+            data-location="contact"
             class="lg:ml-20 md:ml-14 border-2 text-base hover:bg-purple-600 hover:text-white transition-all border-black rounded-md py-2 px-6"
-            >Let's Talk</a
+            >Let's Talk</button
           >
         </nav>
         <svg
@@ -94,15 +94,15 @@
       </div>
       <div id="mobile-menu" class="hidden transition-all md:hidden flex">
         <nav class="relative bg-slate-100 z-20 flex flex-col grow text-2xl text-bold gap-10 pl-7 py-10">
-          <a href="#about">About</a>
-          <a href="#services">Services</a>
-          <a href="#team">Team</a>
-          <a
-            href="#contact"
+          <button class="text-left" data-location="about">About</button>
+          <button class="text-left" data-location="services">Services</button>
+          <button class="text-left" data-location="team">Team</button>
+          <button
+            data-location="contact"
             class="bg-purple-600 flex justify-center border-2  border-black text-xl w-44 rounded-md text-white py-3"
           >
            Let's Talk
-          </a>
+          </button>
         </nav>
         <div class="mobile-menu-bg h-screen w-full left-0 absolute top-24 "></div>
       </div>
@@ -118,12 +118,13 @@
         class="container xl:flex xl:justify-between lg:items-center pt-32 xl:pt-0 px-7 relative mx-auto h-screen min-h-[700px] max-h-[820px]"
       >
         <div data-aos="fade-right">
-          <h1 class="text-6xl md:text-8xl xl:text-9xl xl:max-w-md font-bold">
-            Build With Us
+          <h1 class="text-6xl md:text-8xl xl:text-8xl xl:max-w-md font-bold">
+            Build<span class="text-purple-600">.</span>
+            Verbose<span class="text-purple-600">.</span>
+            Amplify<span class="text-purple-600">.</span>
           </h1>
-          <p class="lg:text-xl md:text-xl xl:max-w-md mt-4">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
-            mollitia, molestiae quas vel sint commodi.
+          <p class="lg:text-xl md:text-xl xl:max-w-md mt-5">
+            Elevate your online presence with our high quality digital services and take your business to the next level.
           </p>
         </div>
 
@@ -514,7 +515,7 @@
             id="globe"
             class="globe border-2 right-20 md:right-40 lg:right-72 xl:top-64 xl:right-[510px] w-10 md:w-20 xl:w-16 rounded-md bg-[#f8f8f8] absolute border-black p-2 inline-block"
           >
-            <img class="" src="./images/globe.png" alt="Globe Image" />
+            <img id="globe-img" alt="Globe Image" />
           </div>
         </div>
       </section>
@@ -522,12 +523,12 @@
       <!-- services section -->
       <section
         data-aos="fade-up"
-        id="services"
         class="container mx-auto px-7 md:mt-52 lg:mt-56 xl:mt-0"
       >
         <h2 class="text-center text-3xl text-4xl font-bold">Our Services</h2>
         <div
           class="grid grid-container grid-cols-1 grid-rows-3 lg:grid-rows-4 h-[930px] md:h-[750px] lg:h-[600px] gap-10 mt-10"
+          id="services"
         >
           <div
             class="lg:row-span-4 border-4 rounded-md border-black relative group overflow-hidden"
@@ -536,17 +537,14 @@
               class="transition-all duration-700 h-0 group-hover:h-full bg-purple-600"
             >
               <p
-                class="md:text-xl lg:text-2xl xl:text-3xl p-5 hidden group-hover:block text-white"
+                class="md:text-xl lg:text-2xl xl:text-3xl xl:text-bold p-5 hidden group-hover:block text-white"
               >
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
-                mollitia, molestiae quas vel sint commodi repudiandae
-                consequuntur voluptatum laborum numquam blanditiis harum
-                quisquam eius sed odit fugiat iusto fuga praesentium optio,
-                eaque rerum!
+                Build that spectacular website that helps you stand out from the crowd. Html, Css, ReactJs,
+                 NextJs Wordpress, Shopify...? We got it all covered.
               </p>
-              <a
+              <button
                 class="md:text-2xl p-5 text-white hidden group-hover:flex items-center absolute -bottom-2 md:bottom-0 right-0"
-                href=""
+                data-location="contact"
               >
                 <span class="lg:text-2xl">Let's get started</span>
                 <svg
@@ -560,7 +558,7 @@
                     data-name="Right"
                   />
                 </svg>
-              </a>
+              </button>
             </div>
             <p
               class="group-hover:hidden ml-auto mt-auto font-bold text-2xl md:text-3xl absolute right-5 bottom-5"
@@ -577,15 +575,11 @@
               <p
                 class="md:text-xl lg:text-2xl xl:text-3xl p-5 absolute hidden group-hover:block text-white"
               >
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
-                mollitia, molestiae quas vel sint commodi repudiandae
-                consequuntur voluptatum laborum numquam blanditiis harum
-                quisquam eius sed odit fugiat iusto fuga praesentium optio,
-                eaque rerum!
+               Crafting words that drive traffic and convert customers. Blogs, Technical articles, SEO.. ? You just came to the right place.
               </p>
-              <a
+              <button
                 class="md:text-2xl p-5 text-white hidden group-hover:flex items-center absolute -bottom-2 md:bottom-0 right-0"
-                href=""
+                data-location="contact"
               >
                 <span class="lg:text-2xl">Let's get started</span>
                 <svg
@@ -599,7 +593,7 @@
                     data-name="Right"
                   />
                 </svg>
-              </a>
+              </button>
             </div>
             <p
               class="group-hover:hidden ml-auto font-bold mt-auto text-2xl md:text-3xl absolute right-5 bottom-5"
@@ -616,15 +610,11 @@
               <p
                 class="md:text-xl lg:text-2xl xl:text-3xl p-5 absolute hidden group-hover:block text-white"
               >
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
-                mollitia, molestiae quas vel sint commodi repudiandae
-                consequuntur voluptatum laborum numquam blanditiis harum
-                quisquam eius sed odit fugiat iusto fuga praesentium optio,
-                eaque rerum!
+               Maximize your digital footprint with targeted campaigns. We leverage the latest technology to drive results.
               </p>
-              <a
+              <button
                 class="md:text-2xl p-5 text-white hidden group-hover:flex items-center absolute -bottom-2 md:bottom-0 right-0"
-                href=""
+                data-location="contact"
               >
                 <span class="lg:text-2xl">Let's get started</span>
                 <svg
@@ -638,7 +628,7 @@
                     data-name="Right"
                   />
                 </svg>
-              </a>
+              </button>
             </div>
             <p
               class="group-hover:hidden ml-auto font-bold mt-auto text-2xl md:text-3xl absolute right-5 bottom-5"
@@ -657,7 +647,7 @@
         <div class="lg:flex mt-16 md:mt-10 lg:h-[700px] relative">
           <div
             id="changing-image"
-            class="h-96 lg:h-full lg:w-1/2 changing-image bg-cover bg-no-repeat"
+            class="h-96 lg:h-full lg:w-1/2 changing-image bg-cover bg-center"
           ></div>
           <div
             class="lg:w-1/2 bg-purple-600 flex items-center justify-center py-20 px-10"
@@ -747,14 +737,11 @@
               />
             </svg>
             <p
-              class="font-medium text-2xl xl:text-3xl text-white max-w-lg leading-[40px] xl:leading-[45px]"
+              class="font-medium text-2xl  text-white max-w-lg leading-[40px] xl:leading-[45px]"
             >
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
-              mollitia, molestiae quas vel sint commodi repudiandae
+              We at Purple Equations take your goals very seriously. Having stayed at the forefront of technology, 
               <span class="text-2xl font-normal">
-                jfslf sdlkjfdsl fdflsd fdkl fddljds dlfj consequuntur voluptatum
-                laborum numquam blandiis harum quisquam eius sed odit fugiat
-                iusto fuga praesentium optio, eaque rerum! Provi
+                we are obsessed in delivering high quality results for our clients using the latest tools and techniques. Whether you are a small business looking to improve your online presence or a large enterprise looking to drive digital transformation, our team has the skills and experience to help you succeed.
               </span>
             </p>
           </div>
@@ -776,9 +763,11 @@
               class="overflow-hidden shadow-md border-2 group pt-10 border-black rounded-md bg-white"
             >
               <img
+                id="joseph-dp"
                 class="transition-all duration-200 group-hover:scale-110"
-                src="./images/man-removebg-preview-modified.png"
                 alt=""
+                loading="lazy"
+                
               />
             </div>
             <div>
@@ -797,9 +786,10 @@
               class="overflow-hidden shadow-md group border-2 pt-10 border-black rounded-md bg-white"
             >
               <img
+                id="sam-dp"
                 class="transition-all duration-200 group-hover:scale-110"
-                src="./images/man-removebg-preview-modified.png"
                 alt=""
+                loading="lazy"
               />
             </div>
             <div>
@@ -821,8 +811,9 @@
             >
               <img
                 class="transition-all duration-200 group-hover:scale-110"
-                src="./images/man-removebg-preview-modified.png"
                 alt=""
+                id="joshua-dp"
+                loading="lazy"
               />
             </div>
             <div>
@@ -842,63 +833,76 @@
       <!-- Get in touch -->
       <section
         data-aos="fade-up"
-        id="contact"
         class="container px-7 mx-auto pb-40 mt-20 lg:mt-32"
       >
         <h2 class="text-4xl font-bold text-center">Get In Touch</h2>
         <form
           class="grid gap-x-20 gap-y-5 grid-cols-1 lg:grid-cols-2 mt-10"
-          action="mailto:emailid@example.com"
+          action="https://formsubmit.co/josephashwin200@gmail.com"
           method="post" 
-          enctype="text/plain"
+          name="contactForm"
+          id="contact-form"
         >
-          <div class="flex flex-col">
-            <label class="text-xl lg:text-base" for="name">Name</label>
+          <input type="hidden" name="_subject" value="New Query!">
+          <input id="submit-page" type="hidden" name="_next">
+          <input type="hidden" name="_captcha" value="false">
+
+          <div id="contact" class="flex flex-col">
+            <label class="text-xl lg:text-base" for="name">Name<span class="text-red-600">*</span></label>
             <input
               type="text"
-              class="border-black border-2 text-xl placeholder:text-xl lg:text-base lg:placeholder:text-base rounded-md p-3 lg:p-2 mt-2 outline-none"
+              class="border-black input-field focus-visible:border-purple-700 border-2 text-xl placeholder:text-xl lg:text-base lg:placeholder:text-base rounded-md p-3 lg:p-2 mt-2 outline-none"
               placeholder="Enter your name"
               name="name"
               id="name"
+              autocomplete="off"
+              required
             />
           </div>
           <div class="flex flex-col">
-            <label class="text-xl lg:text-base" for="name">Phone number</label>
+            <label class="text-xl lg:text-base" for="phone">Phone number<span class="text-red-600">*</span></label>
             <input
               type="number"
-              class="border-black border-2 text-xl placeholder:text-xl lg:text-base lg:placeholder:text-base rounded-md p-3 lg:p-2 mt-2 outline-none"
+              class="border-black input-field focus-visible:border-purple-700 border-2 text-xl placeholder:text-xl lg:text-base lg:placeholder:text-base rounded-md p-3 lg:p-2 mt-2 outline-none"
               placeholder="Enter your phone number"
-              name="name"
-              id="name"
+              name="phone"
+              id="phone"
+              autocomplete="off"
+              required
             />
           </div>
           <div class="flex flex-col">
-            <label class="text-xl lg:text-base" for="name">Email</label>
+            <label class="text-xl lg:text-base" for="email">Email<span class="text-red-600">*</span></label>
             <input
               type="email"
-              class="border-black border-2 text-xl placeholder:text-xl lg:text-base lg:placeholder:text-base rounded-md p-3 lg:p-2 mt-2 outline-none"
+              class="border-black input-field focus-visible:border-purple-700 border-2 text-xl placeholder:text-xl lg:text-base lg:placeholder:text-base rounded-md p-3 lg:p-2 mt-2 outline-none"
               placeholder="Enter your email address"
-              name="name"
-              id="name"
+              name="email"
+              id="email"
+              autocomplete="off"
+              required
             />
           </div>
           <div class="flex flex-col lg:col-span-2">
             <label class="text-xl lg:text-base" for="details"
-              >Tell us about your project</label
+              >Tell us about your project<span class="text-red-600">*</span></label
             >
             <textarea
               placeholder="We would love to hear the services you need and about your goals"
-              class="border-black text-xl placeholder:text-xl lg:text-base lg:placeholder:text-base border-2 rounded-md mt-2 p-2"
+              class="border-black input-field focus:outline-0 focus-visible:border-purple-700 text-xl placeholder:text-xl lg:text-base lg:placeholder:text-base border-2 rounded-md mt-2 p-2"
               name="details"
               id="details"
               rows="7"
+              autocomplete="off"
+              required
             ></textarea>
           </div>
           <button
             type="submit"
-            class="bg-purple-600 border-2 transition-all hover:bg-purple-700 border-black text-base w-48 mt-5 rounded-md text-white py-3"
+            class="bg-purple-600 flex items-center justify-center border-2 transition-all active:bg-purple-700 hover:bg-purple-700 border-black text-base w-48 mt-5 rounded-md text-white h-12"
           >
-            Submit
+            <span id="submit-button">Submit</span> 
+            <img id="spinner" class="w-7 hidden animate-spin duration-700" src="./images/spinner.png" alt="">
           </button>
         </form>
       </section>
@@ -931,10 +935,10 @@
           <ul
             class="text-white gap-5 md:gap-0 items-center md:items-start flex md:flex-col"
           >
-            <li><a href="#about">About</a></li>
-            <li class="md:mt-2"><a href="#services">Service</a></li>
-            <li class="md:mt-2"><a href="#team">Team</a></li>
-            <li class="md:mt-2"><a href="#contact">Contact</a></li>
+            <li><button data-location="about">About</button></li>
+            <li class="md:mt-2"><button data-location="services">Service</button></li>
+            <li class="md:mt-2"><button data-location="team">Team</button></li>
+            <li class="md:mt-2"><button data-location="contact">Contact</button></li>
           </ul>
 
           <ul
@@ -995,9 +999,9 @@
           </ul>
 
           <div class="text-white text-center md:text-left">
-            <p class="text-base">Any Quations?</p>
+            <p class="text-base">Any Question?</p>
             <p class="text-xl mt-2">hello@purpleequation.com</p>
-            <p class="text-sm mt-1">91-8667027042</p>
+            <p class="text-sm mt-1">91-9999999999</p>
             <p class="text-sm mt-1">Chennai, India</p>
           </div>
         </div>

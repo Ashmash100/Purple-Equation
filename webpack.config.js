@@ -8,7 +8,14 @@ let plugins = [
   new HtmlWebpackPlugin({
     inject: 'body',
     template: './src/index.html',
-    filename: 'index.html'
+    filename: 'index.html',
+    chunks: ["index"]
+  }),
+  new HtmlWebpackPlugin({
+    inject: 'body',
+    template: './src/submit.html',
+    filename: 'submit.html',
+    chunks: ["submit"]
   }),
 ]
 
@@ -19,10 +26,13 @@ if (process.env.NODE_ENV === "production") {
 
 module.exports = {
   mode: mode,
-  entry: './src/index.js',
+  entry: {
+    index: './src/index.js',
+    submit: './src/submit.js'
+  },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js',
+    filename: '[name].bundle.js',
     assetModuleFilename: 'images/[name][ext]'
   },
 
@@ -45,7 +55,7 @@ module.exports = {
         use: ['style-loader', 'css-loader', 'postcss-loader','sass-loader'],
       },
       {
-        test: /\.(png|jp(e*)g)$/,
+        test: /\.(png|webp|jp(e*)g)$/,
         type: 'asset/resource',
       },
       {
