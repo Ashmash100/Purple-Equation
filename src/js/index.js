@@ -2,6 +2,7 @@ import "../scss/index.scss";
 import globeImage from '../images/globe.webp';
 import potraitImage from '../images/man-nobg.webp'
 import spinner from '../images/spinner.png'
+import favIcon from '../images/favicon_io/favicon.ico'
 
 // apply aos
 AOS.init();
@@ -38,6 +39,7 @@ document.getElementById('joseph-dp').src = potraitImage;
 document.getElementById('sam-dp').src = potraitImage;
 document.getElementById('joshua-dp').src = potraitImage;
 document.getElementById('spinner').src = spinner;
+document.querySelector('link[rel="icon"]').href = favIcon;
 
 
 

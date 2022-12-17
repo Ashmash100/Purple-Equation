@@ -76,7 +76,7 @@ module.exports = {
         use: ['style-loader', 'css-loader', 'postcss-loader','sass-loader'],
       },
       {
-        test: /\.(png|webp|jp(e*)g)$/,
+        test: /\.(png|ico|webp|jp(e*)g)$/,
         type: 'asset/resource',
       },
       {
