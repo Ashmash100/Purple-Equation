@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyPlugin = require("copy-webpack-plugin");
+const CompressionPlugin = require("compression-webpack-plugin");
 
 let mode = 'development'
 let plugins = [
@@ -46,11 +47,15 @@ let plugins = [
 
 if (process.env.NODE_ENV === "production") {
   mode = "production";
-  plugins.push(new CleanWebpackPlugin(),new CopyPlugin({
+  plugins.push(
+    new CleanWebpackPlugin(),
+    new CopyPlugin({
     patterns: [
       { from: "./sitemap.xml", to: "./" },
-    ],
-  }),)
+      ],
+    }),
+    new CompressionPlugin() 
+  )
 }
 
 module.exports = {
