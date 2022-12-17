@@ -35,6 +35,12 @@ let plugins = [
     filename: 'cookie-policy.html',
     chunks: ["cookiePolicy"]
   }),
+  new HtmlWebpackPlugin({
+    inject: 'body',
+    template: './src/html/google2ed1a045c5ffe9ec.html',
+    filename: 'google2ed1a045c5ffe9ec.html',
+    chunks: ["google2ed1a045c5ffe9ec"]
+  }),
 ]
 
 if (process.env.NODE_ENV === "production") {
