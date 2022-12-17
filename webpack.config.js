@@ -7,15 +7,33 @@ let mode = 'development'
 let plugins = [
   new HtmlWebpackPlugin({
     inject: 'body',
-    template: './src/index.html',
+    template: './src/html/index.html',
     filename: 'index.html',
     chunks: ["index"]
   }),
   new HtmlWebpackPlugin({
     inject: 'body',
-    template: './src/submit.html',
+    template: './src/html/submit.html',
     filename: 'submit.html',
     chunks: ["submit"]
+  }),
+  new HtmlWebpackPlugin({
+    inject: 'body',
+    template: './src/html/privacy-policy.html',
+    filename: 'privacy-policy.html',
+    chunks: ["privacyPolicy"]
+  }),
+  new HtmlWebpackPlugin({
+    inject: 'body',
+    template: './src/html/terms.html',
+    filename: 'terms.html',
+    chunks: ["terms"]
+  }),
+  new HtmlWebpackPlugin({
+    inject: 'body',
+    template: './src/html/cookie-policy.html',
+    filename: 'cookie-policy.html',
+    chunks: ["cookiePolicy"]
   }),
 ]
 
@@ -27,8 +45,11 @@ if (process.env.NODE_ENV === "production") {
 module.exports = {
   mode: mode,
   entry: {
-    index: './src/index.js',
-    submit: './src/submit.js'
+    index: './src/js/index.js',
+    submit: './src/js/submit.js',
+    privacyPolicy: "./src/js/privacy-policy.js",
+    terms: "./src/js/terms.js",
+    cookiePolicy: "./src/js/cookie-policy.js"
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
