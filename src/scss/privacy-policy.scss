@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+li {
+    margin-top: 8px;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+td {
+    padding: 10px;
+}
