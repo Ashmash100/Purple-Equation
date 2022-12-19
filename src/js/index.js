@@ -14,10 +14,15 @@ import wordpressLogo from "../images/web-dev/wordpress-logo.webp";
 import writingLogo from "../images/writing.webp";
 import amplifyLogo from "../images/amplify.webp";
 
+import { header } from "./header";
+
 // apply aos
 AOS.init();
 
 // progress bar animation
+
+const headerTag = document.getElementById('header');
+headerTag.innerHTML = header();
 
 const scrollProgress = () => {
   const progressBar = document.getElementById("progress-bar");
